@@ -42,7 +42,12 @@ Traveller.prototype.calculateTotalDistanceTravelled = function () {
 };
 
 Traveller.prototype.getUniqueModesOfTransport = function () {
-
+  return this.journeys.reduce((transportList, journey) => {
+    if (transportList.includes(journey.transport) == false) {
+      transportList.push(journey.transport)
+    }
+    return transportList;
+  }, [])
 };
 
 
